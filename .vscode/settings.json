@@ -1,0 +1,7 @@
+{
+	"C_Cpp.autocomplete": "disabled",
+	"editor.acceptSuggestionOnEnter": "off",
+	"editor.quickSuggestions": {
+		"comments": "inline"
+	}
+}

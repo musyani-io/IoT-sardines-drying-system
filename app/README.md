@@ -2,15 +2,21 @@
 
 Flutter IoT app integrated with a drying system.
 
-## Getting Started
+## Guidelines
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- [x] Set up Flutter project
+- [ ] Build dashboard UI:
+  - [ ] Show temperature & humidity
+  - [ ] Show weight
+  - [ ] Show battery level
+  - [ ] Show system status (ON/OFF, drying complete, error)
+- [ ] Build control panel:
+  - [ ] Remote ON/OFF control
+  - [ ] Update thresholds (temperature, weight, drying duration)
+- [ ] Add connectivity layer:
+  - [ ] For Bluetooth: integrate `flutter_blue_plus`
+  - [ ] For Wi-Fi/Cloud: use MQTT client or HTTP client
+- [ ] Implement notifications:
+  - [ ] Alert on drying complete
+  - [ ] Alert on error/low battery
+- [ ] Add history/log screen (optional)

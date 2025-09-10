@@ -1,0 +1,50 @@
+{
+	"version": 1,
+	"author": "Samuel Musyani",
+	"editor": "wokwi",
+	"parts": [
+		{
+			"type": "board-esp32-devkit-c-v4",
+			"id": "esp",
+			"top": 0,
+			"left": 0,
+			"attrs": {}
+		},
+		{
+			"type": "wokwi-dht22",
+			"id": "dht1",
+			"top": 99,
+			"left": 258.3,
+			"rotate": 90,
+			"attrs": {}
+		},
+		{
+			"type": "wokwi-resistor",
+			"id": "r1",
+			"top": 196.8,
+			"left": 153.05,
+			"rotate": 90,
+			"attrs": { "value": "10000" }
+		}
+	],
+	"connections": [
+		["esp:TX", "$serialMonitor:RX", "", []],
+		["esp:RX", "$serialMonitor:TX", "", []],
+		["esp:4", "dht1:SDA", "#8f4814", ["h52.84", "v-9.6"]],
+		["r1:1", "dht1:SDA", "green", ["h0", "v-19.2"]],
+		["esp:3V3", "r1:2", "green", ["h-14.21", "v211.2", "h192"]],
+		[
+			"esp:5V",
+			"dht1:VCC",
+			"red",
+			["h-4.61", "v28.8", "h172.8", "v-86.4", "h9.6"]
+		],
+		[
+			"esp:GND.1",
+			"dht1:GND",
+			"black",
+			["h-23.81", "v86.4", "h0", "v9.6", "h211.2", "v-67.2"]
+		]
+	],
+	"dependencies": {}
+}

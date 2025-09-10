@@ -2,8 +2,8 @@
 
 ## Hardware Design
 
-- [ ] Select **ESP32** as main MCU (Wi-Fi + Bluetooth inbuilt)
-- [ ] Add DHT11/DHT22 sensor for temperature & humidity
+- [x] Select **ESP32** as main MCU (Wi-Fi + Bluetooth inbuilt)
+- [x] Add DHT11/DHT22 sensor for temperature & humidity
 - [ ] Add load cell + HX711 for weight measurement
 - [ ] Add heating element (resistive heater / IR lamp)
 - [ ] Add cooling fan (DC)
@@ -13,7 +13,7 @@
 
 ## Firmware (ESP32)
 
-- [ ] Write driver to read DHT sensor
+- [x] Write driver to read DHT sensor
 - [ ] Write driver to read HX711 (load cell)
 - [ ] Implement automatic control logic:
   - [ ] Switch heater ON/OFF based on temperature threshold
@@ -40,7 +40,7 @@
 
 ## Flutter Mobile App
 
-- [ ] Set up Flutter project
+- [x] Set up Flutter project
 - [ ] Build dashboard UI:
   - [ ] Show temperature & humidity
   - [ ] Show weight

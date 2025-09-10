@@ -42,7 +42,7 @@
 
 - [x] Set up Flutter project
 - [ ] Build dashboard UI:
-  - [ ] Show temperature & humidity
+  - [x] Show temperature & humidity
   - [ ] Show weight
   - [ ] Show battery level
   - [ ] Show system status (ON/OFF, drying complete, error)

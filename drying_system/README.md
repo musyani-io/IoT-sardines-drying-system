@@ -6,7 +6,7 @@ An app to remotely control and observe system's and environmental condition arou
 - [x] Set up Flutter project
 - [ ] Build dashboard UI:
     - [x] Show temperature & humidity
-    - [ ] Show weight
+    - [x] Show weight
     - [ ] Show battery level
     - [ ] Show system status (ON/OFF, drying complete, error)
 - [ ] Build control panel:

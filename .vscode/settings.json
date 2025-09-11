@@ -1,7 +1,6 @@
 {
 	"C_Cpp.autocomplete": "disabled",
-	"editor.acceptSuggestionOnEnter": "off",
-	"editor.quickSuggestions": {
-		"comments": "inline"
-	}
+	"editor.acceptSuggestionOnEnter": "on",
+	"cursor.terminal.enableAiChecks": false,
+	"C_Cpp.inlayHints.parameterNames.suppressWhenArgumentContainsName": false
 }

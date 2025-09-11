@@ -4,7 +4,7 @@
 
 - [x] Select **ESP32** as main MCU (Wi-Fi + Bluetooth inbuilt)
 - [x] Add DHT11/DHT22 sensor for temperature & humidity
-- [ ] Add load cell + HX711 for weight measurement
+- [x] Add load cell + HX711 for weight measurement
 - [ ] Add heating element (resistive heater / IR lamp)
 - [ ] Add cooling fan (DC)
 - [ ] Add battery system (with capacity planning)
@@ -14,7 +14,7 @@
 ## Firmware (ESP32)
 
 - [x] Write driver to read DHT sensor
-- [ ] Write driver to read HX711 (load cell)
+- [x] Write driver to read HX711 (load cell)
 - [ ] Implement automatic control logic:
   - [ ] Switch heater ON/OFF based on temperature threshold
   - [ ] Switch fan ON/OFF based on temperature threshold

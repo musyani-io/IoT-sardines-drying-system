@@ -5,7 +5,7 @@
 - [x] Select **ESP32** as main MCU (Wi-Fi + Bluetooth inbuilt)
 - [x] Add DHT11/DHT22 sensor for temperature & humidity
 - [x] Add load cell + HX711 for weight measurement
-- [ ] Add heating element (resistive heater / IR lamp)
+- [x] Add heating element (resistive heater / IR lamp)
 - [ ] Add cooling fan (DC)
 - [ ] Add battery system (with capacity planning)
 - [ ] Add battery level monitoring (voltage divider or fuel gauge IC)

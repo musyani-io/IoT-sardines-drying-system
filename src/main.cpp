@@ -15,6 +15,7 @@ HX711 scale;
 long rawWeight, weight;
 float hum, temp;
 String dhtStr, ldStr;
+unsigned long currentMillis, lastActionP1;
 
 void displayInLcd(int col, int row, String message);
 
@@ -25,35 +26,42 @@ void setup()
   lcd.backlight();
   scale.begin(LD_DOUT, LD_SCK);
   scale.set_scale(420);
-  scale.tare();
+  // scale.tare();
   Serial.begin(115200);
 
-  Serial.println("System booting...");
+  // Serial.println("System booting...");
   displayInLcd(0, 0, "System Booting..");
 }
 
 void loop()
 {
+  currentMillis = millis();
   hum = dht.readHumidity();
   temp = dht.readTemperature();
-  // rawWeight = scale.read();
+  rawWeight = scale.read();
   weight = scale.get_units(5);
-  ldStr = "Weight: " + String(weight, 1) + "kg";
+  // Serial.println(weight);
+  ldStr = "Weight: " + String(weight) + "kg";
 
   if (isnan(temp) || isnan(hum))
   {
-    Serial.println("Status: Error, DHT connection!");
+    // Serial.println("Status: Error, DHT connection!");
     dhtStr = "DHT Error!";
   }
   else
   {
-    Serial.println("Status: DHT values read!");
+    // Serial.println("Status: DHT values read!");
     dhtStr = "T:" + String(temp, 1) + "C H:" + String(hum, 1) + "%";
   }
-  displayInLcd(0, 0, dhtStr);
-  displayInLcd(0, 1, ldStr);
+
+  if (currentMillis - lastActionP1 >= 1000)
+  {
+    lastActionP1 = currentMillis;
+    displayInLcd(0, 0, dhtStr);
+    displayInLcd(0, 1, ldStr);
+    // Serial.println(rawWeight);
+  }
   // Serial.println(weight);
-  // Serial.println(rawWeight);
 }
 
 void displayInLcd(int col, int row, String message)

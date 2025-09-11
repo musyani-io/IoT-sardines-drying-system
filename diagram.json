@@ -40,6 +40,21 @@
 			"left": -288.8,
 			"rotate": 180,
 			"attrs": { "type": "50kg" }
+		},
+		{
+			"type": "wokwi-relay-module",
+			"id": "relay1",
+			"top": -29.4,
+			"left": -195.2,
+			"rotate": 180,
+			"attrs": {}
+		},
+		{
+			"type": "wokwi-led",
+			"id": "led1",
+			"top": -99.6,
+			"left": -284.2,
+			"attrs": { "color": "red", "flip": "1" }
 		}
 	],
 	"connections": [
@@ -67,7 +82,13 @@
 		["cell1:GND", "esp:GND.1", "black", ["h48", "v0.3", "h9.6", "v-28.8"]],
 		["esp:5V", "cell1:VCC", "red", ["h-4.61", "v-57.6", "h-67.2", "v9.6"]],
 		["esp:25", "cell1:SCK", "green", ["v0", "h-62.21", "v57.6"]],
-		["esp:26", "cell1:DT", "#8f4814", ["h-52.61", "v9.6"]]
+		["esp:26", "cell1:DT", "#8f4814", ["h-52.61", "v9.6"]],
+		["relay1:VCC", "esp:5V", "red", ["h67.2", "v9.6"]],
+		["relay1:GND", "esp:GND.1", "black", ["h48", "v96.4"]],
+		["relay1:VCC", "relay1:COM", "red", ["h9.6", "v28.8", "h-144", "v-38.4"]],
+		["led1:A", "relay1:NO", "green", ["v0"]],
+		["relay1:GND", "led1:C", "black", ["h19.2", "v-38", "h-182.4"]],
+		["esp:14", "relay1:IN", "green", ["h-33.41", "v-9.6"]]
 	],
 	"dependencies": {}
 }

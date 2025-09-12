@@ -88,7 +88,7 @@ void loop()
     displayInLcd(0, 1, ldStr);
     // Serial.println(rawWeight);
     // Serial.println(weight);
-    Serial.println("After 1 second!");
+    // Serial.println("After 1 second!");
   }
 
   if (currentMillis - lastActionP2 >= 2000)
@@ -97,7 +97,7 @@ void loop()
     lcd.clear();
     displayInLcd(0, 0, fanStr);
     displayInLcd(0, 1, htrStr);
-    Serial.println("After 2 seconds!");
+    // Serial.println("After 2 seconds!");
   }
 }
 

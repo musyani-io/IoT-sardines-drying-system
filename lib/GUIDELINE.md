@@ -6,7 +6,7 @@
 - [x] Add DHT11/DHT22 sensor for temperature & humidity
 - [x] Add load cell + HX711 for weight measurement
 - [x] Add heating element (resistive heater / IR lamp)
-- [ ] Add cooling fan (DC)
+- [x] Add cooling fan (DC)
 - [ ] Add battery system (with capacity planning)
 - [ ] Add battery level monitoring (voltage divider or fuel gauge IC)
 - [ ] Design PCB (schematic + layout + fabrication + assembly)
@@ -16,8 +16,8 @@
 - [x] Write driver to read DHT sensor
 - [x] Write driver to read HX711 (load cell)
 - [ ] Implement automatic control logic:
-  - [ ] Switch heater ON/OFF based on temperature threshold
-  - [ ] Switch fan ON/OFF based on temperature threshold
+  - [x] Switch heater ON/OFF based on temperature threshold
+  - [x] Switch fan ON/OFF based on temperature threshold
   - [ ] Track drying progress using weight reduction
 - [ ] Store thresholds (temperature, weight, time) in **NVS/EEPROM**
 - [ ] Implement threshold update via app (apply in real time)
@@ -43,7 +43,7 @@
 - [x] Set up Flutter project
 - [ ] Build dashboard UI:
   - [x] Show temperature & humidity
-  - [ ] Show weight
+  - [x] Show weight
   - [ ] Show battery level
   - [ ] Show system status (ON/OFF, drying complete, error)
 - [ ] Build control panel:

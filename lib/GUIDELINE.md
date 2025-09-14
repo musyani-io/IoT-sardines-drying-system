@@ -9,6 +9,7 @@
 - [x] Add cooling fan (DC)
 - [ ] Add battery system (with capacity planning)
 - [ ] Add battery level monitoring (voltage divider or fuel gauge IC)
+- [ ] Add a temperature sensor for the circuit board
 - [ ] Design PCB (schematic + layout + fabrication + assembly)
 
 ## Firmware (ESP32)

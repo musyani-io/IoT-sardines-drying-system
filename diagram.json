@@ -68,7 +68,7 @@
 			"id": "led2",
 			"top": -214.8,
 			"left": 186.6,
-			"attrs": { "color": "blue", "flip": "1" }
+			"attrs": { "color": "blue" }
 		}
 	],
 	"connections": [
@@ -107,8 +107,8 @@
 		["relay1:VCC", "relay2:VCC", "red", ["h9.6", "v-153.6"]],
 		["esp:13", "relay2:IN", "green", ["h-33.41", "v0", "h-9.6", "v-230.4"]],
 		["lcd1:VCC", "relay2:COM", "red", ["h-9.6", "v-38.3"]],
-		["relay2:GND", "led2:A", "black", ["h-9.6", "v-38.8", "h9.6"]],
-		["relay2:NO", "led2:C", "green", ["h0"]]
+		["led2:A", "relay2:NO", "green", ["v0"]],
+		["relay2:GND", "led2:C", "black", ["h-9.6", "v-38.8", "h96"]]
 	],
 	"dependencies": {}
 }

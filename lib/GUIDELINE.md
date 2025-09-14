@@ -7,6 +7,7 @@
 - [x] Add load cell + HX711 for weight measurement
 - [x] Add heating element (resistive heater / IR lamp)
 - [x] Add cooling fan (DC)
+- [ ] Add buttons for editing on-site (Settings and weight initiation)
 - [ ] Add battery system (with capacity planning)
 - [ ] Add battery level monitoring (voltage divider or fuel gauge IC)
 - [ ] Add a temperature sensor for the circuit board
@@ -19,6 +20,8 @@
 - [ ] Implement automatic control logic:
   - [x] Switch heater ON/OFF based on temperature threshold
   - [x] Switch fan ON/OFF based on temperature threshold
+  - [ ] Button to initate the weight value
+  - [ ] Buttons for settings mode (threshold control)
   - [ ] Track drying progress using weight reduction
 - [ ] Store thresholds (temperature, weight, time) in **NVS/EEPROM**
 - [ ] Implement threshold update via app (apply in real time)

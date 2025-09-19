@@ -7,7 +7,11 @@
 - [x] Add load cell + HX711 for weight measurement
 - [x] Add heating element (resistive heater / IR lamp)
 - [x] Add cooling fan (DC)
-- [ ] Add buttons for editing on-site (Settings and weight initiation)
+- [ ] Add buttons
+  - [ ] Settings mode
+  - [ ] UP button
+  - [ ] DOWN button
+  - [ ] Weight Initiation
 - [ ] Add battery system (with capacity planning)
 - [ ] Add battery level monitoring (voltage divider or fuel gauge IC)
 - [ ] Add a temperature sensor for the circuit board

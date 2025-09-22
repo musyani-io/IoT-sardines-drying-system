@@ -4,14 +4,14 @@
 
 - [x] Select **ESP32** as main MCU (Wi-Fi + Bluetooth inbuilt)
 - [x] Add DHT11/DHT22 sensor for temperature & humidity
-- [x] Add load cell + HX711 for weight measurement
+- [x] Add load cell + HX711 for Weight measurement
 - [x] Add heating element (resistive heater / IR lamp)
 - [x] Add cooling fan (DC)
 - [ ] Add buttons
-  - [x] Settings mode
+  - [ ] Settings mode
   - [ ] UP button
   - [ ] DOWN button
-  - [ ] Weight Initiation
+  - [x] Weight Initiation
 - [ ] Add battery system (with capacity planning)
 - [ ] Add battery level monitoring (voltage divider or fuel gauge IC)
 - [ ] Add a temperature sensor for the circuit board
@@ -24,10 +24,10 @@
 - [ ] Implement automatic control logic:
   - [x] Switch heater ON/OFF based on temperature threshold
   - [x] Switch fan ON/OFF based on temperature threshold
-  - [ ] Button to initate the weight value
+  - [x] Button to initate the weight value
   - [ ] Buttons for settings mode (threshold control)
-  - [ ] Track drying progress using weight reduction
-- [ ] Store thresholds (temperature, weight, time) in **NVS/EEPROM**
+  - [x] Track drying progress using currentWeight reduction (I have to add display of percent value of the progress)
+- [ ] Store thresholds (temperature, currentWeight, time) in **NVS/EEPROM**
 - [ ] Implement threshold update via app (apply in real time)
 - [ ] Monitor system:
   - [ ] Track uptime (time ON)
@@ -51,12 +51,12 @@
 - [x] Set up Flutter project
 - [ ] Build dashboard UI:
   - [x] Show temperature & humidity
-  - [x] Show weight
+  - [x] Show currentWeight
   - [ ] Show battery level
   - [ ] Show system status (ON/OFF, drying complete, error)
 - [ ] Build control panel:
   - [ ] Remote ON/OFF control
-  - [ ] Update thresholds (temperature, weight, drying duration)
+  - [ ] Update thresholds (temperature, currentWeight, drying duration)
 - [ ] Add connectivity layer:
   - [ ] For Bluetooth: integrate `flutter_blue_plus`
   - [ ] For Wi-Fi/Cloud: use MQTT client or HTTP client

@@ -75,7 +75,28 @@
 			"id": "btn1",
 			"top": 255.8,
 			"left": 28.8,
-			"attrs": { "color": "red", "xray": "1" }
+			"attrs": { "color": "red", "xray": "0" }
+		},
+		{
+			"type": "wokwi-pushbutton",
+			"id": "btn2",
+			"top": 323,
+			"left": 28.8,
+			"attrs": { "color": "blue", "xray": "1" }
+		},
+		{
+			"type": "wokwi-pushbutton",
+			"id": "btn3",
+			"top": 380.6,
+			"left": 28.8,
+			"attrs": { "color": "blue", "xray": "1" }
+		},
+		{
+			"type": "wokwi-pushbutton-6mm",
+			"id": "btn4",
+			"top": 103.4,
+			"left": 144,
+			"attrs": { "color": "green", "xray": "1" }
 		}
 	],
 	"connections": [
@@ -117,7 +138,13 @@
 		["led2:A", "relay2:NO", "green", ["v0"]],
 		["relay2:GND", "led2:C", "black", ["h-9.6", "v-38.8", "h96"]],
 		["cell1:GND", "btn1:1.l", "black", ["h57.6", "v77.1"]],
-		["esp:16", "btn1:2.r", "#8f4814", ["h24.04", "v153.6"]]
+		["esp:16", "btn1:2.r", "#8f4814", ["h14.44", "v153.4"]],
+		["esp:5", "btn3:2.r", "#8f4814", ["h33.64", "v201.6"]],
+		["esp:17", "btn2:2.r", "#8f4814", ["h24.04", "v124.8"]],
+		["esp:18", "btn4:1.l", "#8f4814", ["h0"]],
+		["btn4:2.r", "dht1:GND", "black", ["h29.6", "v19.6"]],
+		["cell1:GND", "btn2:1.l", "black", ["h57.6", "v153.9"]],
+		["cell1:GND", "btn3:1.l", "black", ["h57.6", "v201.9"]]
 	],
 	"dependencies": {}
 }

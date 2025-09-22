@@ -11,7 +11,7 @@ class _DashboardTabState extends State<DashboardTab> {
   // Placeholder values - you'll replace these with actual data later
   final double _temperature = 25.5;
   final int _humidity = 60;
-  final double _weight = 10.2; // Placeholder for weight
+  final double _currentWeight = 10.2; // Placeholder for currentWeight
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +34,7 @@ class _DashboardTabState extends State<DashboardTab> {
                 'Parameters',
                 style: TextStyle(
                   fontSize: 20.0,
-                  fontWeight: FontWeight.bold,
+                  fontcurrentWeight: FontcurrentWeight.bold,
                   color: Theme.of(context).colorScheme.primary,
                 ),
               ),
@@ -52,7 +52,9 @@ class _DashboardTabState extends State<DashboardTab> {
                     ), // Icon for temperature
                     title: const Text(
                       'Temperature',
-                      style: TextStyle(fontWeight: FontWeight.w600),
+                      style: TextStyle(
+                        fontcurrentWeight: FontcurrentWeight.w600,
+                      ),
                     ),
                     subtitle: Text(
                       '$_temperature °C',
@@ -74,7 +76,9 @@ class _DashboardTabState extends State<DashboardTab> {
                     ), // Icon for humidity
                     title: const Text(
                       'Humidity',
-                      style: TextStyle(fontWeight: FontWeight.w600),
+                      style: TextStyle(
+                        fontcurrentWeight: FontcurrentWeight.w600,
+                      ),
                     ),
                     subtitle: Text(
                       '$_humidity%',
@@ -91,15 +95,17 @@ class _DashboardTabState extends State<DashboardTab> {
                   ), // Visual separator
                   ListTile(
                     leading: const Icon(
-                      Icons.scale, // Icon for weight
+                      Icons.scale, // Icon for currentWeight
                       size: 45.0,
                     ),
                     title: const Text(
-                      'Weight',
-                      style: TextStyle(fontWeight: FontWeight.w600),
+                      'currentWeight',
+                      style: TextStyle(
+                        fontcurrentWeight: FontcurrentWeight.w600,
+                      ),
                     ),
                     subtitle: Text(
-                      '$_weight kg', // Display weight
+                      '$_currentWeight kg', // Display currentWeight
                       style: TextStyle(
                         fontSize: 18.0,
                         color: Theme.of(context).colorScheme.secondary,

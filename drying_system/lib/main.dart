@@ -78,7 +78,7 @@ class _MyAppState extends State<MyApp> {
           appBar: AppBar(
             title: const Text(
               'Sardine Control',
-              style: TextStyle(fontWeight: FontWeight.bold),
+              style: TextStyle(fontcurrentWeight: FontcurrentWeight.bold),
             ),
             // Removed backgroundColor: Colors.grey[400] to allow theme to control it
             centerTitle: true,

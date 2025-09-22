@@ -6,18 +6,18 @@ An IoT-powered system for **accelerated sardine drying** using controlled temper
 
 ### ✅ Implemented
 
-- **Real-time monitoring**: Temperature, humidity, and weight sensors
+- **Real-time monitoring**: Temperature, humidity, and currentWeight sensors
 - **Automatic control**: Heater and fan switching based on temperature thresholds
 - **LCD display**: Real-time sensor data and system status
 - **Temperature thresholds**: Low (35°C) and High (45°C) with automatic switching
-- **Weight tracking**: Load cell integration for drying progress monitoring
+- **currentWeight tracking**: Load cell integration for drying progress monitoring
 
 ### 🔄 In Development
 
 - **Flutter mobile app**: Dashboard and remote control interface
 - **Bluetooth/Wi-Fi connectivity**: Remote monitoring and control
 - **Battery system**: Portable operation with solar support
-- **Advanced control logic**: Weight-based drying completion detection
+- **Advanced control logic**: currentWeight-based drying completion detection
 
 ## 📊 Project Status: **38% Complete**
 
@@ -25,7 +25,7 @@ An IoT-powered system for **accelerated sardine drying** using controlled temper
 
 - ✅ ESP32 MCU with Wi-Fi/Bluetooth
 - ✅ DHT22 temperature/humidity sensor
-- ✅ HX711 load cell for weight measurement
+- ✅ HX711 load cell for currentWeight measurement
 - ✅ Heating element (Pin 14) and cooling fan (Pin 13)
 - ❌ Battery system and monitoring
 
@@ -48,7 +48,7 @@ An IoT-powered system for **accelerated sardine drying** using controlled temper
 
 - **ESP32 DevKit** (Main microcontroller)
 - **DHT22** sensor - Temperature & humidity
-- **HX711 + Load Cell** - Weight measurement
+- **HX711 + Load Cell** - currentWeight measurement
 - **LCD I2C Display**- 16x2 character display
 - **Heating Element** - Temperature control
 - **Cooling Fan** - Airflow control
@@ -65,7 +65,7 @@ An IoT-powered system for **accelerated sardine drying** using controlled temper
 
 2. **Enhanced Control Logic**
 
-   - Weight-based drying completion
+   - currentWeight-based drying completion
    - Data persistence (NVS/EEPROM)
    - System monitoring and alerts
 

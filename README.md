@@ -1,7 +1,3 @@
-# 🐟 Smart Sardine Drying System
-
-An IoT-powered system for **accelerated sardine drying** using controlled temperature and airflow. Built around the **ESP32**, this project combines sensors, actuators, and a mobile app for automated fish drying.
-
 ## 🚀 Current Features
 
 ### ✅ Implemented
@@ -19,97 +15,40 @@ An IoT-powered system for **accelerated sardine drying** using controlled temper
 - **Battery system**: Portable operation with solar support
 - **Advanced control logic**: currentWeight-based drying completion detection
 
-## 📊 Project Status: **38% Complete**
+## 📊 Project Status: **52% Complete**
 
-### Hardware Design (50%)
+### Hardware Design (75%)
 
 - ✅ ESP32 MCU with Wi-Fi/Bluetooth
 - ✅ DHT22 temperature/humidity sensor
 - ✅ HX711 load cell for currentWeight measurement
 - ✅ Heating element (Pin 14) and cooling fan (Pin 13)
-- ❌ Battery system and monitoring
+- ✅ Weight Initiation Button
+- ✅ Battery system design
+- ❌ Add buttons for settings mode, UP, and DOWN
+- ❌ Add battery level monitoring (voltage divider or fuel gauge IC)
+- ❌ Add a temperature sensor for the circuit board
+- ❌ Design PCB (schematic + layout + fabrication + assembly)
 
-### Firmware (40%)
+### Firmware (55%)
 
 - ✅ Sensor drivers (DHT, HX711)
 - ✅ Basic control logic with temperature thresholds
 - ✅ LCD display system
-- ❌ Data persistence and app communication
+- ✅ Data persistence and app communication
+- ❌ Implement automatic control logic for settings mode buttons
+- ❌ Store thresholds (temperature, currentWeight, time) in NVS/EEPROM
+- ❌ Implement threshold update via app (apply in real time)
+- ❌ Monitor system (uptime, ON/OFF status, drying completion, battery level)
+- ❌ Implement communication protocol (send sensor values, receive commands)
 
-### Mobile App (25%)
+### Mobile App (40%)
 
 - ✅ Flutter project structure
 - ✅ Basic UI components
-- ❌ Connectivity and control features
-
-## 🛠️ Hardware Setup
-
-### Components
-
-- **ESP32 DevKit** (Main microcontroller)
-- **DHT22** sensor - Temperature & humidity
-- **HX711 + Load Cell** - currentWeight measurement
-- **LCD I2C Display**- 16x2 character display
-- **Heating Element** - Temperature control
-- **Cooling Fan** - Airflow control
-
-## 🚧 Next Development Phase
-
-### Priority Tasks
-
-1. **Mobile App Integration**
-
-   - Bluetooth connectivity implementation
-   - Remote control dashboard
-   - Real-time data visualization
-
-2. **Enhanced Control Logic**
-
-   - currentWeight-based drying completion
-   - Data persistence (NVS/EEPROM)
-   - System monitoring and alerts
-
-3. **Power Management**
-   - Battery system design
-   - Solar charging capability
-   - Low-power operation modes
-
-## 📁 Project Structure
-
-```
-IoT-sardines-drying-system/
-├── src/main.cpp              # ESP32 firmware
-├── drying_system/            # Flutter mobile app
-├── circuit/                  # Hardware designs
-├── lib/GUIDELINE.md          # Development roadmap
-└── platformio.ini           # Build configuration
-```
-
-## 🔧 Getting Started
-
-### Firmware Setup
-
-1. Install PlatformIO
-2. Clone repository
-3. Connect hardware according to pin configuration
-4. Upload firmware to ESP32
-5. Monitor via Serial (115200 baud) or LCD display
-
-### Mobile App Setup
-
-```bash
-cd drying_system
-flutter pub get
-flutter run
-```
-
-## 📈 Performance Goals
-
-- **Drying Time**: 50% faster than traditional sun-drying
-- **Quality Control**: Consistent temperature and humidity
-- **Energy Efficiency**: Solar-powered operation
-- **User Experience**: Intuitive mobile control
-
----
-
-**Status**: Active Development | **Version**: 0.4.0 | **Last Updated**: September 2025
+- ✅ Basic Bluetooth connectivity
+- ❌ Build dashboard UI (battery level, system status)
+- ❌ Build control panel (remote ON/OFF, update thresholds)
+- ❌ Add connectivity layer (Wi-Fi/Cloud, MQTT client or HTTP client)
+- ❌ Implement notifications (drying complete, error/low battery)
+- ❌ Add history/log screen (optional)

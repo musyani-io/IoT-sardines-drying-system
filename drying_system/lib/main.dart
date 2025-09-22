@@ -26,14 +26,20 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     final ThemeData lightTheme = ThemeData(
-      primarySwatch: Colors.lightBlue,
+      colorScheme: ColorScheme.fromSeed(
+        seedColor: Colors.lightBlue,
+        brightness: Brightness.light,
+      ),
       brightness: Brightness.light,
-      // AppBar background color will be taken from primarySwatch
+      // AppBar background color will be taken from colorScheme.primary
     );
 
     final ThemeData darkTheme = ThemeData(
+      colorScheme: ColorScheme.fromSeed(
+        seedColor: Colors.blueGrey,
+        brightness: Brightness.dark,
+      ),
       brightness: Brightness.dark,
-      primarySwatch: Colors.blueGrey, // A common choice for dark themes
       scaffoldBackgroundColor: const Color(
         0xFF121212,
       ), // Standard dark background
@@ -41,34 +47,31 @@ class _MyAppState extends State<MyApp> {
         backgroundColor: Color(0xFF1F1F1F), // Slightly lighter than scaffold
       ),
       cardColor: const Color(0xFF1E1E1E), // Dark grey for cards
-      textTheme: ThemeData.dark().textTheme.apply(
-        bodyColor: Colors.white, // Ensure text is visible
-        displayColor: Colors.white,
-      ),
       iconTheme: const IconThemeData(color: Colors.white),
       switchTheme: SwitchThemeData(
-        thumbColor: MaterialStateProperty.resolveWith<Color?>((
-          Set<MaterialState> states,
+        thumbColor: WidgetStateProperty.resolveWith<Color?>((
+          Set<WidgetState> states,
         ) {
-          if (states.contains(MaterialState.selected)) {
+          if (states.contains(WidgetState.selected)) {
             return Colors.lightBlue;
           }
           return Colors.grey;
         }),
-        trackColor: MaterialStateProperty.resolveWith<Color?>((
-          Set<MaterialState> states,
+        trackColor: WidgetStateProperty.resolveWith<Color?>((
+          Set<WidgetState> states,
         ) {
-          if (states.contains(MaterialState.selected)) {
-            return Colors.lightBlue.withOpacity(0.5);
+          if (states.contains(WidgetState.selected)) {
+            return Colors.lightBlue.withAlpha(127);
           }
-          return Colors.grey.withOpacity(0.5);
+          return Colors.grey.withAlpha(127);
         }),
       ),
+      // textTheme will be derived from ColorScheme for better dark theme support
       // Add other dark theme specific properties here if needed
     );
 
     return MaterialApp(
-      title: 'Sardine Control',
+      title: 'EasyDry Hub',
       theme: lightTheme,
       darkTheme: darkTheme,
       themeMode: _themeMode,
@@ -77,10 +80,9 @@ class _MyAppState extends State<MyApp> {
         child: Scaffold(
           appBar: AppBar(
             title: const Text(
-              'Sardine Control',
-              style: TextStyle(fontcurrentWeight: FontcurrentWeight.bold),
+              'EasyDry Hub',
+              style: TextStyle(fontWeight: FontWeight.bold),
             ),
-            // Removed backgroundColor: Colors.grey[400] to allow theme to control it
             centerTitle: true,
             bottom: const TabBar(
               tabs: [

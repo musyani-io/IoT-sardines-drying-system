@@ -132,17 +132,17 @@ void loop()
       // Serial.println("After 2 seconds!");
     }
 
-    if (currentWeight <= finalWeight)
-    {
-      dryStatus = false;
-      Serial.println("Product is dried!");
-    }
-
     if (weight != currentWeight)
     {
       float percent = ((initialWeight - currentWeight) * 100) / (initialWeight);
       weight = currentWeight;
       Serial.println("Weight loss: " + String(percent, 1));
+    }
+
+    if (currentWeight <= finalWeight)
+    {
+      dryStatus = false;
+      Serial.println("Product is dried!");
     }
   }
   displayInLcd(0, 0, "Weight: " + String(currentWeight, 1) + "kg ");

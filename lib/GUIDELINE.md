@@ -49,11 +49,11 @@
 ## Flutter Mobile App
 
 - [x] Set up Flutter project
-- [ ] Build dashboard UI:
+- [x] Build dashboard UI:
   - [x] Show temperature & humidity
   - [x] Show currentWeight
-  - [ ] Show battery level
-  - [ ] Show system status (ON/OFF, drying complete, error)
+  - [x] Show battery level
+  - [x] Show system status (ON/OFF, drying complete, error)
 - [ ] Build control panel:
   - [ ] Remote ON/OFF control
   - [ ] Update thresholds (temperature, currentWeight, drying duration)

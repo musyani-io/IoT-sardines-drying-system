@@ -24,6 +24,14 @@ class SettingsTab extends StatelessWidget {
           },
           secondary: Icon(isDarkMode ? Icons.dark_mode : Icons.light_mode),
         ),
+        ListTile(
+          leading: const Icon(Icons.help_outline),
+          title: const Text('Help'),
+          onTap: () {
+            // Placeholder for navigation or action
+            print('Help tapped!');
+          },
+        ),
         // Add other settings here if needed
       ],
     );

@@ -8,7 +8,7 @@
 - [x] Add heating element (resistive heater / IR lamp)
 - [x] Add cooling fan (DC)
 - [ ] Add buttons
-  - [ ] Settings mode
+  - [x] Settings mode
   - [ ] UP button
   - [ ] DOWN button
   - [ ] Weight Initiation

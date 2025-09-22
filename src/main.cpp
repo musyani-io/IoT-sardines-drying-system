@@ -19,12 +19,13 @@ LiquidCrystal_I2C lcd(0x27, 16, 2);
 HX711 scale;
 
 // Variables
-bool buttonState = true;
+bool buttonState, lastButtonState = true;
 long rawWeight, weight;
 float hum, temp;
 int highTemp = 45, lowTemp = 35;
 String dhtStr, fanStr, htrStr, ldStr;
 unsigned long currentMillis = 0, lastActionP1 = 0, lastActionP2 = 0;
+const unsigned long debounceDelay = 200;
 
 // Function definition
 void displayInLcd(int col, int row, String message);
@@ -37,6 +38,7 @@ void setup()
 
   pinMode(14, OUTPUT);
   pinMode(13, OUTPUT);
+  pinMode(SET_BTN, INPUT_PULLUP);
   digitalWrite(13, LOW);
   digitalWrite(14, LOW);
 
@@ -51,6 +53,16 @@ void setup()
 
 void loop()
 {
+  buttonState = digitalRead(SET_BTN);
+  if (buttonState != lastButtonState)
+  {
+    if (!buttonState)
+    {
+      Serial.println("Pressed!");
+    }
+    lastButtonState = buttonState;
+  }
+
   currentMillis = millis();
   hum = dht.readHumidity();
   temp = dht.readTemperature();

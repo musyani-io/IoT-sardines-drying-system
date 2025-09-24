@@ -56,7 +56,6 @@ void setup()
   // scale.tare();
 
   lcd.clear();
-  // Serial.println(checkButton(OK_BTN));
   while (true)
   {
     displayInLcd(0, 0, "Insert Weight");
@@ -144,7 +143,6 @@ void loop()
     temp = dht.readTemperature();
     currentWeight = scale.get_units(5);
     ldStr = "Weight: " + String(currentWeight, 1) + "kg";
-    // rawWeight = scale.read();
     // Serial.println(currentWeight);
 
     if (isnan(temp) || isnan(hum))
@@ -179,8 +177,6 @@ void loop()
       lcd.clear();
       displayInLcd(0, 0, dhtStr);
       displayInLcd(0, 1, ldStr);
-      // Serial.println(rawWeight);
-      // Serial.println(currentWeight);
       // Serial.println("After 1 second!");
     }
 

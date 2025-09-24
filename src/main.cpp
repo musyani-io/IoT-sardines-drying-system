@@ -22,7 +22,7 @@ HX711 scale;
 bool buttonState, lastButtonState = true, dryStatus = false;
 long rawWeight;
 float hum, temp, weight, currentWeight, initialWeight, finalWeight;
-int highTemp = 45, lowTemp = 35;
+int highTemp = 0, lowTemp = 0;
 String dhtStr, fanStr, htrStr, ldStr, whiteSpc = "                ";
 unsigned long currentMillis = 0, lastActionP1 = 0, lastActionP2 = 0;
 const unsigned long debounceDelay = 200;
@@ -41,7 +41,9 @@ void setup()
   pinMode(14, OUTPUT);
   pinMode(13, OUTPUT);
   pinMode(SET_BTN, INPUT_PULLUP);
+  pinMode(UP_BTN, INPUT_PULLUP);
   pinMode(OK_BTN, INPUT_PULLUP);
+  pinMode(DWN_BTN, INPUT_PULLUP);
   digitalWrite(13, LOW);
   digitalWrite(14, LOW);
 
@@ -66,7 +68,66 @@ void setup()
     {
       // Serial.println("Out!");
       dryStatus = true;
+      lcd.clear();
       break;
+    }
+  }
+
+  while (true)
+  {
+    displayInLcd(0, 0, "Adjust Max Temp");
+    dhtStr = "Max Temp: " + String(highTemp) + "C";
+    displayInLcd(0, 1, dhtStr);
+
+    if (checkButton(OK_BTN))
+    {
+      Serial.println("Max Temp set!");
+      lcd.clear();
+      break;
+    }
+
+    if (checkButton(UP_BTN))
+    {
+      highTemp += 1;
+      Serial.println("Max Temperature: " + String(highTemp));
+    }
+    else if (checkButton(DWN_BTN))
+    {
+      highTemp -= 1;
+      Serial.println("Max Temperature: " + String(highTemp));
+    }
+  }
+
+  while (true)
+  {
+    displayInLcd(0, 0, "Adjust Min Temp");
+    dhtStr = "Min Temp: " + String(lowTemp) + "C";
+    displayInLcd(0, 1, dhtStr);
+
+    if (checkButton(OK_BTN))
+    {
+      Serial.println("Min Temp set!");
+      lcd.clear();
+      break;
+    }
+
+    if (checkButton(UP_BTN))
+    {
+      lowTemp += 1;
+      if (lowTemp >= highTemp)
+      {
+        lowTemp = highTemp;
+      }
+      Serial.println("Min Temperature: " + String(highTemp));
+    }
+    else if (checkButton(DWN_BTN))
+    {
+      lowTemp -= 1;
+      if (lowTemp <= 0)
+      {
+        lowTemp = 0;
+      }
+      Serial.println("Min Temperature: " + String(lowTemp));
     }
   }
 

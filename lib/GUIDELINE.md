@@ -9,8 +9,8 @@
 - [x] Add cooling fan (DC)
 - [ ] Add buttons
   - [ ] Settings mode
-  - [ ] UP button
-  - [ ] DOWN button
+  - [x] UP button
+  - [x] DOWN button
   - [x] Weight Initiation
 - [ ] Add battery system (with capacity planning)
 - [ ] Add battery level monitoring (voltage divider or fuel gauge IC)
@@ -25,7 +25,7 @@
   - [x] Switch heater ON/OFF based on temperature threshold
   - [x] Switch fan ON/OFF based on temperature threshold
   - [x] Button to initate the weight value
-  - [ ] Buttons for settings mode (threshold control)
+  - [x] Buttons for settings mode (threshold control) (Only at the start!)
   - [x] Track drying progress using currentWeight reduction (I have to add display of percent value of the progress)
 - [ ] Store thresholds (temperature, currentWeight, time) in **NVS/EEPROM**
 - [ ] Implement threshold update via app (apply in real time)

@@ -81,7 +81,7 @@ void setup()
 
     if (checkButton(OK_BTN))
     {
-      Serial.println("Max Temp set!");
+      // Serial.println("Max Temp set!");
       lcd.clear();
       break;
     }
@@ -89,12 +89,12 @@ void setup()
     if (checkButton(UP_BTN))
     {
       highTemp += 1;
-      Serial.println("Max Temperature: " + String(highTemp));
+      // Serial.println("Max Temperature: " + String(highTemp));
     }
     else if (checkButton(DWN_BTN))
     {
       highTemp -= 1;
-      Serial.println("Max Temperature: " + String(highTemp));
+      // Serial.println("Max Temperature: " + String(highTemp));
     }
   }
 
@@ -106,7 +106,7 @@ void setup()
 
     if (checkButton(OK_BTN))
     {
-      Serial.println("Min Temp set!");
+      // Serial.println("Min Temp set!");
       lcd.clear();
       break;
     }
@@ -118,7 +118,7 @@ void setup()
       {
         lowTemp = highTemp;
       }
-      Serial.println("Min Temperature: " + String(highTemp));
+      // Serial.println("Min Temperature: " + String(highTemp));
     }
     else if (checkButton(DWN_BTN))
     {
@@ -127,12 +127,12 @@ void setup()
       {
         lowTemp = 0;
       }
-      Serial.println("Min Temperature: " + String(lowTemp));
+      // Serial.println("Min Temperature: " + String(lowTemp));
     }
   }
 
   finalWeight = 0.7 * initialWeight; // Assuming 30% of the load is water (for sardines)
-  Serial.println("Final Weight is: " + String(finalWeight, 1) + "kg");
+  // Serial.println("Final Weight is: " + String(finalWeight, 1) + "kg");
 }
 
 void loop()
@@ -197,13 +197,13 @@ void loop()
     {
       float percent = ((initialWeight - currentWeight) * 100) / (initialWeight);
       weight = currentWeight;
-      Serial.println("Weight loss: " + String(percent, 1));
+      // Serial.println("Weight loss: " + String(percent, 1));
     }
 
     if (currentWeight <= finalWeight)
     {
       dryStatus = false;
-      Serial.println("Product is dried!");
+      // Serial.println("Product is dried!");
     }
   }
   displayInLcd(0, 0, "Weight: " + String(currentWeight, 1) + "kg ");

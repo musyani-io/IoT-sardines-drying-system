@@ -5,7 +5,7 @@
 #include <PubSubClient.h>
 #include <WiFi.h>
 #include "credentials.h"
-#include <WiFiClientSecure.h>
+#include <WiFiClient.h>
 
 // Pin definition
 #define DHTPIN 4
@@ -21,7 +21,7 @@
 DHT dht(DHTPIN, DHTTYPE);
 LiquidCrystal_I2C lcd(0x27, 16, 2);
 HX711 scale;
-WiFiClientSecure espClient;
+WiFiClient espClient;
 PubSubClient client(espClient);
 
 // Variables
@@ -37,6 +37,7 @@ const unsigned long debounceDelay = 200;
 void displayInLcd(int col, int row, String message);
 bool checkButton(int pin);
 void wifiSetup();
+void connectToBroker();
 
 void setup()
 {
@@ -44,7 +45,11 @@ void setup()
   lcd.init();
   lcd.backlight();
   Serial.begin(115200);
+  // Serial.println("System booting...");
+  displayInLcd(0, 0, "System Booting..");
+  delay(1500);
   wifiSetup();
+  client.setServer(MQTT_SERVER, MQTT_PORT);
 
   pinMode(14, OUTPUT);
   pinMode(13, OUTPUT);
@@ -54,10 +59,6 @@ void setup()
   pinMode(DWN_BTN, INPUT_PULLUP);
   digitalWrite(13, LOW);
   digitalWrite(14, LOW);
-
-  // Serial.println("System booting...");
-  displayInLcd(0, 0, "System Booting..");
-  delay(1500);
 
   scale.begin(LD_DOUT, LD_SCK);
   scale.set_scale(420);
@@ -146,6 +147,11 @@ void loop()
 {
   while (dryStatus)
   {
+    if (!client.connected())
+    {
+      connectToBroker();
+    }
+    client.loop();
     currentMillis = millis();
     hum = dht.readHumidity();
     temp = dht.readTemperature();
@@ -240,7 +246,7 @@ void wifiSetup()
   int timeOut = 5000;
   delay(50);
   WiFi.begin(WIFI_SSID, WIFI_PASS);
-  Serial.print("Connecting to WiFi.");
+  Serial.print("Connecting to WiFi....");
   while (WiFi.status() != WL_CONNECTED && timeOut > millis())
   {
     delay(10);
@@ -250,9 +256,28 @@ void wifiSetup()
   if (WiFi.status())
   {
     Serial.println("WiFi connected!");
+    Serial.println("IP Address: " + String(WiFi.localIP()));
   }
   else
   {
     Serial.println("WiFi not connected! Timeout reached!");
+  }
+}
+
+void connectToBroker()
+{
+  Serial.print("Attempting MQTT Connection...");
+  while (!client.connected())
+  {
+    Serial.print("..");
+    if (client.connect(""))
+    {
+      Serial.println("Connected!");
+    }
+    else
+    {
+      Serial.print("Failed, rc = " + client.state());
+      delay(100);
+    }
   }
 }

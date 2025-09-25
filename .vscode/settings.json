@@ -4,6 +4,8 @@
 	"cursor.terminal.enableAiChecks": false,
 	"C_Cpp.inlayHints.parameterNames.suppressWhenArgumentContainsName": false,
 	"files.associations": {
-		"algorithm": "cpp"
+		"algorithm": "cpp",
+		"istream": "cpp",
+		"ostream": "cpp"
 	}
 }

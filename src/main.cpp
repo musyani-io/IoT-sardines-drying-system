@@ -2,6 +2,9 @@
 #include <DHT.h>
 #include <HX711.h>
 #include <LiquidCrystal_I2C.h>
+#include <PubSubClient.h>
+#include <WiFi.h>
+#include "credentials.h"
 
 // Pin definition
 #define DHTPIN 4

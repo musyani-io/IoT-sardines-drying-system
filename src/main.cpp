@@ -5,6 +5,7 @@
 #include <PubSubClient.h>
 #include <WiFi.h>
 #include "credentials.h"
+#include <WiFiClientSecure.h>
 
 // Pin definition
 #define DHTPIN 4
@@ -20,6 +21,8 @@
 DHT dht(DHTPIN, DHTTYPE);
 LiquidCrystal_I2C lcd(0x27, 16, 2);
 HX711 scale;
+WiFiClientSecure espClient;
+PubSubClient client(espClient);
 
 // Variables
 bool buttonState, lastButtonState = true, dryStatus = false;
@@ -33,6 +36,7 @@ const unsigned long debounceDelay = 200;
 // Function definition
 void displayInLcd(int col, int row, String message);
 bool checkButton(int pin);
+void wifiSetup();
 
 void setup()
 {
@@ -40,6 +44,7 @@ void setup()
   lcd.init();
   lcd.backlight();
   Serial.begin(115200);
+  wifiSetup();
 
   pinMode(14, OUTPUT);
   pinMode(13, OUTPUT);
@@ -192,12 +197,12 @@ void loop()
       // Serial.println("After 2 seconds!");
     }
 
-    if (weight != currentWeight)
-    {
-      float percent = ((initialWeight - currentWeight) * 100) / (initialWeight);
-      weight = currentWeight;
-      // Serial.println("Weight loss: " + String(percent, 1));
-    }
+    // if (weight != currentWeight)
+    // {
+    //   float percent = ((initialWeight - currentWeight) * 100) / (initialWeight);
+    //   weight = currentWeight;
+    //   Serial.println("Weight loss: " + String(percent, 1));
+    // } (LATER WHEN SHOWING THE PROGRESS)
 
     if (currentWeight <= finalWeight)
     {
@@ -228,4 +233,26 @@ bool checkButton(int pin)
     lastButtonState = buttonState;
   }
   return ans;
+}
+
+void wifiSetup()
+{
+  int timeOut = 5000;
+  delay(50);
+  WiFi.begin(WIFI_SSID, WIFI_PASS);
+  Serial.print("Connecting to WiFi.");
+  while (WiFi.status() != WL_CONNECTED && timeOut > millis())
+  {
+    delay(10);
+    Serial.print(".");
+  }
+
+  if (WiFi.status())
+  {
+    Serial.println("WiFi connected!");
+  }
+  else
+  {
+    Serial.println("WiFi not connected! Timeout reached!");
+  }
 }

@@ -147,11 +147,13 @@ void loop()
 {
   while (dryStatus)
   {
-    if (!client.connected())
+    /*if (!client.connected())
     {
       connectToBroker();
-    }
-    client.loop();
+    }*/
+    // These is meant to connect with MQTT Broker (Physcial board or when gateway is determined)
+    // client.loop();
+
     currentMillis = millis();
     hum = dht.readHumidity();
     temp = dht.readTemperature();

@@ -11,3 +11,4 @@ circuit/proteus/*.workspace
 src/*.h
 *.elf
 *.hex
+*backup

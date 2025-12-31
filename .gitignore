@@ -9,3 +9,5 @@
 circuit/proteus/*Backups
 circuit/proteus/*.workspace
 src/*.h
+*.elf
+*.hex
